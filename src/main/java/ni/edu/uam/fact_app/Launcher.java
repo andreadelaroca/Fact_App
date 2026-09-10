@@ -5,6 +5,6 @@ import ni.edu.uam.fact_app.application.FacturacionApplication;
 
 public class Launcher {
     public static void main(String[] args) {
-        Application.launch(args);
+        Application.launch(FacturacionApplication.class, args);
     }
 }
