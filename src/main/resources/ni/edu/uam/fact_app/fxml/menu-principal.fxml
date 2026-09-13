@@ -6,46 +6,60 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController">
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <!-- MenuBar -->
-                <MenuBar>
+                <MenuBar prefHeight="27.0">
                     <menus>
-                        <Menu mnemonicParsing="false" text="Mantenimiento">
+                        <Menu mnemonicParsing="false" text="Productos">
                             <items>
                                 <MenuItem fx:id="mnuProductos" mnemonicParsing="false" onAction="#abrirProductos" text="Productos" />
-                                <MenuItem fx:id="mnuSalir" mnemonicParsing="false" onAction="#salir" text="Salir" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Salir">
+                            <items>
+                                <MenuItem fx:id="mnuSalir" mnemonicParsing="false" text="Salir" />
                             </items>
                         </Menu>
                     </menus>
                 </MenuBar>
-
-                <!-- ToolBar -->
-                <ToolBar prefHeight="40.0" prefWidth="200.0">
+                <ToolBar>
                     <items>
-                        <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#abrirProductos" text="Productos" />
-                        <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" text="Salir" />
+                        <Button fx:id="btnSalir" onAction="#salir">
+                            <graphic>
+                                <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/cerrar.png">
+                                        </Image>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <tooltip>
+                                <Tooltip text="Cerrar aplicación"></Tooltip>
+                            </tooltip>
+                        </Button>
                     </items>
-                </ToolBar>
+                    </ToolBar>
             </children>
         </VBox>
     </top>
-
-    <!-- Center Label -->
-    <center>
-        <Label text="Sistema de facturación" BorderPane.alignment="CENTER">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
-    </center>
+   <center>
+       <VBox alignment="CENTER" spacing="20" BorderPane.alignment="CENTER">
+           <children>
+              <Label text="Sistema de Facturación" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-font-family: SansSerif" />
+               <ImageView fitWidth="150.0" fitHeight="150.0" preserveRatio="true">
+                   <image>
+                       <Image url="@../images/logo.png"/>
+                   </image>
+               </ImageView>
+           </children>
+       </VBox>
+   </center>
 </BorderPane>
