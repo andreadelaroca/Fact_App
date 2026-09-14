@@ -2,74 +2,159 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="412.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.ProductoController">
+<AnchorPane prefHeight="696.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.ProductoController">
     <children>
-        <HBox prefHeight="50.0" prefWidth="600.0" spacing="20.0">
-            <children>
-                <Label prefHeight="65.0" prefWidth="327.0" text="Registro de Categorías">
+      <VBox prefHeight="115.0" prefWidth="900.0" spacing="20.0">
+         <children>
+            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="895.0">
+               <items>
+                  <Button fx:id="btnSalir" onAction="#salir">
+                     <graphic>
+                        <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/cerrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Cerrar aplicación" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="btnHome" onAction="#abrirMenu">
+                     <graphic>
+                        <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Regresar al menú principal" />
+                     </tooltip>
+                  </Button>
+               </items>
+            </ToolBar>
+                <Label prefHeight="65.0" prefWidth="327.0" text="Gestión de Productos">
                     <font>
-                        <Font name="Helvetica" size="27.0" />
+                        <Font name="SansSerif Bold" size="27.0" />
+                    </font>
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+                </Label>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </VBox>
+        <VBox layoutX="14.0" layoutY="117.0" prefHeight="479.0" prefWidth="450.0" spacing="10.0">
+            <children>
+                <Label text="Código">
+                    <font>
+                        <Font name="System Bold" size="12.800000190734863" />
                     </font>
                 </Label>
+                <TextField fx:id="txtCodigo" promptText="CO0001" />
+                <Label text="Nombre">
+                    <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                    </font>
+                </Label>
+                <TextField fx:id="txtNombre" prefHeight="27.0" prefWidth="163.0" promptText="Producto" />
+                <Label text="Categoría">
+                    <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                    </font>
+                </Label>
+            <ComboBox fx:id="cmbCategoria" prefHeight="27.0" prefWidth="203.0" promptText="Seleccione una categoría" />
+            <Label text="Precio de venta">
+               <font>
+                  <Font name="System Bold" size="12.800000190734863" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPrecio" promptText="100.00" />
+            <Label layoutX="40.0" layoutY="242.0" text="Existencia">
+               <font>
+                  <Font name="System Bold" size="12.800000190734863" />
+               </font>
+            </Label>
+            <TextField fx:id="txtExistencia" promptText="10" />
+            <Label layoutX="40.0" layoutY="309.0" text="Estado">
+               <font>
+                  <Font name="System Bold" size="12.800000190734863" />
+               </font>
+            </Label>
+            <CheckBox fx:id="chkActivo" mnemonicParsing="false" text="Activo" />
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="Vista previa">
+                     <font>
+                        <Font name="System Bold" size="12.800000190734863" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnImagen" mnemonicParsing="false" onAction="#seleccionarImagen" text="Seleccionar imagen" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <ImageView fx:id="imgProducto" fitHeight="150.0" fitWidth="376.0" pickOnBounds="true" preserveRatio="true" />
+            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                        <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="27.0" prefWidth="108.0" text="Guardar" />
+              </buttons>
+            </ButtonBar>
             </children>
             <padding>
-                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-            </padding>
-        </HBox>
-        <VBox layoutY="54.0" prefHeight="358.0" prefWidth="347.0" spacing="10.0">
-            <children>
-                <Label text="ID">
-                    <font>
-                        <Font name="System Bold" size="12.800000190734863" />
-                    </font>
-                </Label>
-                <TextField disable="true" promptText="0" />
-                <Label text="Nombre de la categoría">
-                    <font>
-                        <Font name="System Bold" size="12.800000190734863" />
-                    </font>
-                </Label>
-                <TextField prefHeight="27.0" prefWidth="163.0" promptText="Juguetes" />
-                <Label text="Descripción">
-                    <font>
-                        <Font name="System Bold" size="12.800000190734863" />
-                    </font>
-                </Label>
-                <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Carro rojo con cuatro ruedas" />
-                <ToolBar prefHeight="40.0" prefWidth="200.0">
-                    <items>
-                        <Button mnemonicParsing="false" text="Agregar" />
-                        <Button mnemonicParsing="false" text="Editar" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
-                        <Button mnemonicParsing="false" text="Buscar" />
-                    </items>
-                </ToolBar>
-            </children>
-            <padding>
-                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
             </padding>
         </VBox>
-        <VBox layoutX="322.0" layoutY="66.0" prefHeight="340.0" prefWidth="347.0" spacing="10.0">
+        <VBox layoutX="450.0" layoutY="122.0" prefHeight="673.0" prefWidth="450.0" spacing="10.0">
             <children>
-                <TableView prefHeight="341.0" prefWidth="257.0">
+                <TableView fx:id="tblProductos" prefHeight="339.0" prefWidth="318.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
+                        <TableColumn prefWidth="75.0" text="Código" />
+                        <TableColumn prefWidth="75.0" text="Nombre" />
                         <TableColumn prefWidth="75.0" text="Categoría" />
-                        <TableColumn prefWidth="75.0" text="Descripción" />
+                  <TableColumn prefWidth="75.0" text="Precio" />
+                  <TableColumn prefWidth="75.0" text="Existencia" />
+                  <TableColumn prefWidth="75.0" text="Estado" />
                     </columns>
                 </TableView>
+            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="186.0">
+              <buttons>
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
+                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" text="Editar" />
+                <Button fx:id="btnMostrar" minWidth="0.0" mnemonicParsing="false" onAction="#mostrar" prefHeight="27.0" prefWidth="111.0" text="Mostrar todos" />
+              </buttons>
+            </ButtonBar>
+            <Label text="Buscar por código">
+               <font>
+                  <Font name="System Bold" size="12.800000190734863" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="txtCodigoBuscar" promptText="CO001" />
+                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarPorCodigo" prefHeight="27.0" prefWidth="77.0" text="Buscar" />
+               </children>
+            </HBox>
             </children>
             <padding>
                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

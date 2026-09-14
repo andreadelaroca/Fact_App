@@ -12,7 +12,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController">
+<BorderPane
+        prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController"
+       style="-fx-background-color: #0099BC"
+        >
     <top>
         <VBox BorderPane.alignment="CENTER">
             <children>
@@ -31,7 +34,7 @@
                                 <Tooltip text="Cerrar aplicación" />
                             </tooltip>
                         </Button>
-                        <Button fx:id="btnHome" onAction="#salir">
+                        <Button fx:id="btnHome" onAction="#abrirMenu">
                             <graphic>
                                 <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
                                     <image>
@@ -41,12 +44,12 @@
                                 </ImageView>
                             </graphic>
                             <tooltip>
-                                <Tooltip text="Volver al menú de inicio" />
+                                <Tooltip text="Regresar al menú principal" />
                             </tooltip>
                         </Button>
                     </items>
                     </ToolBar>
-                <MenuBar prefHeight="27.0">
+                <MenuBar prefHeight="30.0">
                     <menus>
                         <Menu mnemonicParsing="false" text="Módulos">
                             <items>
@@ -55,10 +58,13 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Salir">
                             <items>
-                                <MenuItem fx:id="mnuSalir" mnemonicParsing="false" text="Salir" />
+                                <MenuItem fx:id="mnuSalir" mnemonicParsing="false" onAction="#salir" text="Salir" />
                             </items>
                         </Menu>
                     </menus>
+                    <tooltip>
+                        <Tooltip text="Módulos del sistema"></Tooltip>
+                    </tooltip>
                 </MenuBar>
             </children>
         </VBox>
@@ -71,7 +77,13 @@
                        <Image url="@../images/logo.png" />
                    </image>
                </ImageView>
-               <Label alignment="CENTER_RIGHT" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-font-family: SansSerif" text="Sistema de Facturación" />
+               <Label
+                       alignment="CENTER_RIGHT"
+                       style="-fx-font-size: 40px;
+                       -fx-font-weight: bold;
+                       -fx-font-family: SansSerif;
+                        -fx-text-fill: WHITE"
+                       text="Sistema de Facturación" />
            </children>
        </VBox>
    </center>

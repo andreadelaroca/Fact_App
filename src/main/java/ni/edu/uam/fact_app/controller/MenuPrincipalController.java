@@ -11,7 +11,7 @@ public class MenuPrincipalController {
     private void abrirProductos() {
         try {
             SceneManager.abrirVentana(
-                    "ni.edu.uam/fact_app/fxml/producto-view.fxml", "Gestión de productos");
+                    "ni/edu/uam/fact_app/fxml/producto-view.fxml", "Gestión de Productos");
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR, "No fue posible abrir Productos.").showAndWait();
         }
@@ -22,5 +22,14 @@ public class MenuPrincipalController {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrar la aplicación?", ButtonType.OK, ButtonType.CANCEL);
         if (a.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK)
             Platform.exit();
+    }
+
+    @FXML
+    private void abrirMenu() {
+        try {
+            SceneManager.abrirVentana("/ni/edu/uam/fact_app/fxml/menu-principal.fxml", "Menú Principal");
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, "No fue posible abrir Menú principal.").showAndWait();
+        }
     }
 }
