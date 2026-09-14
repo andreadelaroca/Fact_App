@@ -8,11 +8,14 @@ import java.math.BigDecimal;
 
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Producto {
-    private Integer id;
+    private String codigo;
     private String nombre;
     private Categoria categoria;
     private BigDecimal precioVenta;
     private int existencia;
     private String rutaImagen;
     private boolean activo;
+
+    public Producto(String trim, String trim1, Categoria value, BigDecimal precio, int existencia, boolean selected, String rutaImagen) {
+    }
 }

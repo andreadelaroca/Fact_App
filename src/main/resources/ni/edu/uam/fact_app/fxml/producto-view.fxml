@@ -129,12 +129,12 @@
             <children>
                 <TableView fx:id="tblProductos" prefHeight="339.0" prefWidth="318.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Código" />
-                        <TableColumn prefWidth="75.0" text="Nombre" />
-                        <TableColumn prefWidth="75.0" text="Categoría" />
-                  <TableColumn prefWidth="75.0" text="Precio" />
-                  <TableColumn prefWidth="75.0" text="Existencia" />
-                  <TableColumn prefWidth="75.0" text="Estado" />
+                        <TableColumn prefWidth="75.0" text="Código" fx:id="colCodigo"/>
+                        <TableColumn prefWidth="75.0" text="Nombre" fx:id="colNombre"/>
+                        <TableColumn prefWidth="75.0" text="Categoría" fx:id="colCategoria"/>
+                  <TableColumn prefWidth="75.0" text="Precio" fx:id="colPrecio"/>
+                  <TableColumn prefWidth="75.0" text="Existencia" fx:id="colExistencia"/>
+                  <TableColumn prefWidth="75.0" text="Estado" fx:id="colActivo"/>
                     </columns>
                 </TableView>
             <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="186.0">
