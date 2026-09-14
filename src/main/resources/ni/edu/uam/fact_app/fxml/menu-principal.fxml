@@ -7,30 +7,16 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController">
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.fact_app.controller.MenuPrincipalController">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <MenuBar prefHeight="27.0">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Productos">
-                            <items>
-                                <MenuItem fx:id="mnuProductos" mnemonicParsing="false" onAction="#abrirProductos" text="Productos" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Salir">
-                            <items>
-                                <MenuItem fx:id="mnuSalir" mnemonicParsing="false" text="Salir" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-                <ToolBar>
+                <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefWidth="432.0">
                     <items>
                         <Button fx:id="btnSalir" onAction="#salir">
                             <graphic>
@@ -42,23 +28,50 @@
                                 </ImageView>
                             </graphic>
                             <tooltip>
-                                <Tooltip text="Cerrar aplicación"></Tooltip>
+                                <Tooltip text="Cerrar aplicación" />
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="btnHome" onAction="#salir">
+                            <graphic>
+                                <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/home.png">
+                                        </Image>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <tooltip>
+                                <Tooltip text="Volver al menú de inicio" />
                             </tooltip>
                         </Button>
                     </items>
                     </ToolBar>
+                <MenuBar prefHeight="27.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Módulos">
+                            <items>
+                                <MenuItem fx:id="mnuProductos" mnemonicParsing="false" onAction="#abrirProductos" text="Productos" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Salir">
+                            <items>
+                                <MenuItem fx:id="mnuSalir" mnemonicParsing="false" text="Salir" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
             </children>
         </VBox>
     </top>
    <center>
        <VBox alignment="CENTER" spacing="20" BorderPane.alignment="CENTER">
            <children>
-              <Label text="Sistema de Facturación" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-font-family: SansSerif" />
-               <ImageView fitWidth="150.0" fitHeight="150.0" preserveRatio="true">
+               <ImageView fitHeight="250.0" fitWidth="250.0" preserveRatio="true">
                    <image>
-                       <Image url="@../images/logo.png"/>
+                       <Image url="@../images/logo.png" />
                    </image>
                </ImageView>
+               <Label alignment="CENTER_RIGHT" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-font-family: SansSerif" text="Sistema de Facturación" />
            </children>
        </VBox>
    </center>
