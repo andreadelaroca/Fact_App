@@ -63,7 +63,7 @@
             <Insets bottom="20.0" />
          </padding>
       </VBox>
-        <VBox layoutX="14.0" layoutY="117.0" prefHeight="479.0" prefWidth="450.0" spacing="10.0">
+        <VBox layoutX="14.0" layoutY="117.0" prefHeight="662.0" prefWidth="399.0" spacing="10.0">
             <children>
                 <Label text="Código">
                     <font>
@@ -94,14 +94,14 @@
                   <Font name="System Bold" size="12.800000190734863" />
                </font>
             </Label>
-            <TextField fx:id="txtExistencia" promptText="10" />
+            <TextField fx:id="txtExistencia" prefHeight="27.0" prefWidth="269.0" promptText="10" />
             <Label layoutX="40.0" layoutY="309.0" text="Estado">
                <font>
                   <Font name="System Bold" size="12.800000190734863" />
                </font>
             </Label>
             <CheckBox fx:id="chkActivo" mnemonicParsing="false" text="Activo" />
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <HBox prefHeight="29.0" prefWidth="318.0" spacing="20.0">
                <children>
                   <Label text="Vista previa">
                      <font>
@@ -122,19 +122,19 @@
             </ButtonBar>
             </children>
             <padding>
-                <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
+                <Insets bottom="30.0" left="15.0" right="15.0" top="10.0" />
             </padding>
         </VBox>
-        <VBox layoutX="450.0" layoutY="122.0" prefHeight="673.0" prefWidth="450.0" spacing="10.0">
+        <VBox layoutX="394.0" layoutY="122.0" prefHeight="674.0" prefWidth="506.0" spacing="10.0">
             <children>
                 <TableView fx:id="tblProductos" prefHeight="339.0" prefWidth="318.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Código" fx:id="colCodigo"/>
-                        <TableColumn prefWidth="75.0" text="Nombre" fx:id="colNombre"/>
-                        <TableColumn prefWidth="75.0" text="Categoría" fx:id="colCategoria"/>
-                  <TableColumn prefWidth="75.0" text="Precio" fx:id="colPrecio"/>
-                  <TableColumn prefWidth="75.0" text="Existencia" fx:id="colExistencia"/>
-                  <TableColumn prefWidth="75.0" text="Estado" fx:id="colActivo"/>
+                        <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
+                        <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="colCategoria" prefWidth="75.0" text="Categoría" />
+                  <TableColumn fx:id="colPrecio" prefWidth="75.0" text="Precio" />
+                  <TableColumn fx:id="colExistencia" prefWidth="75.0" text="Existencia" />
+                  <TableColumn fx:id="colActivo" prefWidth="75.0" text="Activo" />
                     </columns>
                 </TableView>
             <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="186.0">
@@ -151,7 +151,7 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <TextField fx:id="txtCodigoBuscar" promptText="CO001" />
+                  <TextField fx:id="txtCodigoBuscar" prefHeight="27.0" prefWidth="199.0" promptText="CO001" />
                   <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarPorCodigo" prefHeight="27.0" prefWidth="77.0" text="Buscar" />
                </children>
             </HBox>

@@ -68,8 +68,10 @@ public class ProductoController {
 
     @FXML
     private void guardar() {
-        if (txtCodigo.getText().isBlank() || txtNombre.getText().isBlank()
-                || txtPrecio.getText().isBlank() || txtExistencia.getText().isBlank()
+        if (txtCodigo.getText().isBlank()
+                || txtNombre.getText().isBlank()
+                || txtPrecio.getText().isBlank()
+                || txtExistencia.getText().isBlank()
                 || cmbCategoria.getValue() == null) {
             mensaje(Alert.AlertType.WARNING, "Complete los campos obligatorios.");
             return;
@@ -77,19 +79,20 @@ public class ProductoController {
         try {
             BigDecimal precio = new BigDecimal(txtPrecio.getText().trim());
             int existencia = Integer.parseInt(txtExistencia.getText().trim());
-            if (precio.signum() <= 0 || existencia < 0) {
+            if (precio.compareTo(BigDecimal.ZERO) <= 0 || existencia < 0) {
                 mensaje(Alert.AlertType.WARNING,
                         "Precio mayor que cero y existencia no negativa.");
                 return;
             }
             if (productoEditable == null) {
-                Producto p = new Producto(txtCodigo.getText().trim(),
+                Producto p = new Producto(
+                        txtCodigo.getText().trim(),
                         txtNombre.getText().trim(),
                         cmbCategoria.getValue(),
                         precio,
                         existencia,
-                        chkActivo.isSelected(),
-                        rutaImagen);
+                        rutaImagen,
+                        chkActivo.isSelected());
             productos.add(p);
             mensaje(Alert.AlertType.INFORMATION, "Producto agregado correctamente.");
             }
@@ -99,13 +102,15 @@ public class ProductoController {
                 productoEditable.setCategoria(cmbCategoria.getValue());
                 productoEditable.setPrecioVenta(precio);
                 productoEditable.setExistencia(existencia);
-                productoEditable.setActivo(chkActivo.isSelected());
                 productoEditable.setRutaImagen(rutaImagen);
+                productoEditable.setActivo(chkActivo.isSelected());
+
                 tblProductos.refresh();
                 mensaje(Alert.AlertType.INFORMATION, "Producto actualizado correctamente.");
                 productoEditable = null;
             }
             limpiar();
+
         } catch (NumberFormatException e) {
             mensaje(Alert.AlertType.ERROR, "Precio o existencia no válidos.");
         }

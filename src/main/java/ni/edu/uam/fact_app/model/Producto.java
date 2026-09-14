@@ -15,7 +15,4 @@ public class Producto {
     private int existencia;
     private String rutaImagen;
     private boolean activo;
-
-    public Producto(String trim, String trim1, Categoria value, BigDecimal precio, int existencia, boolean selected, String rutaImagen) {
-    }
 }
