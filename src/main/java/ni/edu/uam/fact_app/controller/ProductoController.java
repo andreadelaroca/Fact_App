@@ -19,12 +19,12 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 public class ProductoController {
-    @FXML private TextField txtCodigo, txtNombre, txtPrecio, txtExistencia, txtCodigoBuscar;
+    @FXML private TextField txtId, txtCodigo, txtNombre, txtPrecio, txtExistencia, txtCodigoBuscar;
     @FXML private ComboBox<Categoria> cmbCategoria;
     @FXML private CheckBox chkActivo;
     @FXML private ImageView imgProducto;
-
     @FXML private TableView<Producto> tblProductos;
+    @FXML private TableColumn<Producto, String> colId;
     @FXML private TableColumn<Producto, String> colCodigo;
     @FXML private TableColumn<Producto, String> colNombre;
     @FXML private TableColumn<Producto, String> colCategoria;
@@ -45,7 +45,7 @@ public class ProductoController {
                 new Categoria(3, "Limpieza", true)));
         tblProductos.setItems(productos);
         chkActivo.setSelected(true);
-
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
@@ -86,6 +86,7 @@ public class ProductoController {
             }
             if (productoEditable == null) {
                 Producto p = new Producto(
+                        //TODO: Corregir parametro id
                         txtCodigo.getText().trim(),
                         txtNombre.getText().trim(),
                         cmbCategoria.getValue(),
