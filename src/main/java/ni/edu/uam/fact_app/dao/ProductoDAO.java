@@ -15,7 +15,7 @@ import java.util.List;
 public class ProductoDAO {
     public List<Producto> listar() {
         List<Producto> productos = new ArrayList<>();
-        String sql = "SELECT * FROM productos";
+        String sql = "SELECT * FROM producto";
         try (
                 Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql);

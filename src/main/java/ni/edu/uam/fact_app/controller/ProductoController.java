@@ -77,6 +77,7 @@ public class ProductoController {
             return;
         }
         try {
+            Integer id = Integer.parseInt(txtId.getId());
             BigDecimal precio = new BigDecimal(txtPrecio.getText().trim());
             int existencia = Integer.parseInt(txtExistencia.getText().trim());
             if (precio.compareTo(BigDecimal.ZERO) <= 0 || existencia < 0) {
@@ -86,7 +87,7 @@ public class ProductoController {
             }
             if (productoEditable == null) {
                 Producto p = new Producto(
-                        //TODO: Corregir parametro id
+                        id,
                         txtCodigo.getText().trim(),
                         txtNombre.getText().trim(),
                         cmbCategoria.getValue(),

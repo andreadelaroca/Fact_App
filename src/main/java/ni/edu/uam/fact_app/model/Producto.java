@@ -16,4 +16,7 @@ public class Producto {
     private int existencia;
     private String rutaImagen;
     private boolean activo;
+
+    public void setCategoria(int categoriaId) {
+    }
 }
