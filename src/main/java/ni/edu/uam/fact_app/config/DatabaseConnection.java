@@ -1,4 +1,4 @@
-package ni.edu.uam.fact_app.util;
+package ni.edu.uam.fact_app.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
