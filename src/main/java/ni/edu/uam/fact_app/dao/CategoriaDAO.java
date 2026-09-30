@@ -34,4 +34,18 @@ public class CategoriaDAO {
         }
         return categorias;
     }
+
+    public void guardar(Categoria categoria) {
+        String sql = "INSERT INTO categoria (nombre, activa) VALUES (?, ?)";
+        try (Connection connection = DatabaseConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, categoria.getNombre());
+            ps.setBoolean(2, categoria.isActiva());
+            ps.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
