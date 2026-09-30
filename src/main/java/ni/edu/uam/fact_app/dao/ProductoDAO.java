@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import ni.edu.uam.fact_app.config.DatabaseConnection;
 import ni.edu.uam.fact_app.model.Producto;
 
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,5 +35,59 @@ public class ProductoDAO {
             e.printStackTrace();
         }
         return productos;
+    }
+
+    public void guardar() {
+        String sql = "INSERT INTO producto(id, codigo, nombre, categoria_id, precio_venta, existencia, ruta_imagen, activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql);) {
+            Producto producto = new Producto();
+            ps.setInt(1, producto.getId());
+            ps.setString(2, producto.getCodigo());
+            ps.setString(3, producto.getNombre());
+            //Validación id categoría
+            if (producto.getCategoria() != null && producto.getCategoria().getId() != null) {
+                ps.setInt(3, producto.getCategoria().getId());
+            }
+            else {
+                ps.setNull(3, Types.INTEGER);
+            }
+            ps.setBigDecimal(5, producto.getPrecioVenta());
+            ps.setInt(6, producto.getExistencia());
+            ps.setString(7, producto.getRutaImagen());
+            ps.setBoolean(8, producto.isActivo());
+            ps.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void actualizar(Producto producto) {
+        String sql = "UPDATE producto SET codigo = ?, nombre = ?, categoria_id = ?, precio_venta = ?, existencia = ?, ruta_imagen = ?, activo = ? WHERE id = ?";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, producto.getCodigo());
+            ps.setString(2, producto.getNombre());
+            ps.setInt(3, producto.getCategoria().getId());
+            ps.setBigDecimal(4, producto.getPrecioVenta());
+            ps.setInt(4, producto.getExistencia());
+            ps.setString(5, producto.getRutaImagen());
+            ps.setBoolean(6, producto.isActivo());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void eliminar(int id) {
+            String sql = "DELETE FROM producto WHERE id = ?";
+            try (Connection connection = DatabaseConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ps.executeUpdate();
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
     }
 }
