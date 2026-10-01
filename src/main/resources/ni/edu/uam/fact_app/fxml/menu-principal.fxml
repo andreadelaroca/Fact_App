@@ -54,6 +54,7 @@
                         <Menu mnemonicParsing="false" text="Módulos">
                             <items>
                                 <MenuItem fx:id="mnuProductos" mnemonicParsing="false" onAction="#abrirProductos" text="Productos" />
+                                <MenuItem fx:id="mnuCategorias" mnemonicParsing="false" onAction="#abrirCategorias" text="Categorías"/>
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Salir">

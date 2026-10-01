@@ -18,6 +18,15 @@ public class MenuPrincipalController {
     }
 
     @FXML
+    private void abrirCategorias() {
+        try {
+            SceneManager.abrirVentana("/ni/edu/uam/fact_app/fxml/categoria-view.fxml", "Gestión de Categorías");
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, "No fue posible abrir Categorías").showAndWait();
+        }
+    }
+
+    @FXML
     private void salir() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrar la aplicación?", ButtonType.OK, ButtonType.CANCEL);
         if (a.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK)
